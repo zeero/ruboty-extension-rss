@@ -9,7 +9,7 @@ module Ruboty
         end
 
         def rss(url, options = {})
-          # actions << Rss::Action.new(url, options)
+          actions << Ruboty::Extension::Rss::Action.new(url, options)
         end
 
         def actions
@@ -27,7 +27,7 @@ module Ruboty
         validate!
       end
 
-      def call(options = {})
+      def run(options = {})
         # self.class.actions.inject({}) do |routes, action|
         #   routes.merge!(action.call(self, options))
         # end

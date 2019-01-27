@@ -10,6 +10,10 @@ module Ruboty
     end
 
     def extension_rss
+      rsses.each(&:run)
+    end
+
+    def rsses
       Ruboty::Extension::Rss::Builder.new(self).build
     end
   end

@@ -9,9 +9,11 @@ module Ruboty
         end
 
         def build
-          # TODO
           puts 'Rss::Builder#build'
-          # Ruboty::Extenision::Rss.rsses.inject({}) { |result, router| result.merge!(router.new(robot).call) }
+          Ruboty::Extenision::Rss.rsses.map { |rss| rss.new(robot) }
+
+          # TODO
+          []
         end
       end
     end
