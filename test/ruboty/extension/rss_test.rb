@@ -1,11 +1,34 @@
 require 'test_helper'
 
-class Ruboty::Extension::RssTest < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::Ruboty::Extension::Rss::VERSION
+describe Ruboty::Extension::Rss do
+  subject { Ruboty::Extension::Rss }
+
+  describe 'VERSION' do
+    it 'has a version number' do
+      ::Ruboty::Extension::Rss::VERSION.wont_be_nil
+    end
   end
 
-  def test_it_does_something_useful
-    assert true
+  describe '.to_positive_i' do
+    it 'returns positive integer with positive number' do
+      subject.to_positive_i('10.99').must_equal 10
+      subject.to_positive_i(10.99).must_equal 10
+    end
+
+    it 'returns nil with non-numeric' do
+      subject.to_positive_i('a').must_be_nil
+      subject.to_positive_i('').must_be_nil
+      subject.to_positive_i(nil).must_be_nil
+    end
+
+    it 'returns nil with negative number' do
+      subject.to_positive_i('-1').must_be_nil
+      subject.to_positive_i(-1).must_be_nil
+    end
+
+    it 'returns nil with zero' do
+      subject.to_positive_i('0').must_be_nil
+      subject.to_positive_i(0).must_be_nil
+    end
   end
 end
