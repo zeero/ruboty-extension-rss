@@ -9,13 +9,14 @@ module Ruboty
         end
 
         def rss(url, options = {})
-          actions << Ruboty::Extension::Rss::Action.new(url, options)
+          name = options[:name]
+          jobs << Ruboty::Extension::Rss::Job.new(self, url, name, options)
         end
 
-        def actions
+        def jobs
           []
         end
-        memoize :actions
+        memoize :jobs
       end
 
       include Env::Validatable
@@ -27,11 +28,10 @@ module Ruboty
         validate!
       end
 
-      def run(options = {})
-        # self.class.actions.inject({}) do |routes, action|
-        #   routes.merge!(action.call(self, options))
-        # end
+      def call(_options = {})
+        self.class.jobs.each(&:start)
       end
     end
   end
 end
+

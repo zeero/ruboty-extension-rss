@@ -47,5 +47,16 @@ describe Ruboty::Extension::Rss::Job do
       t.join
     end
   end
+
+  describe '.new' do
+    it 'has interval with option' do
+      subject.instance_variable_get('@interval').must_equal 1
+    end
+
+    it 'has default interval with option not set' do
+      job = Ruboty::Extension::Rss::Job.new(mock_rss, 'url', rss_method)
+      job.instance_variable_get('@interval').must_equal 3600
+    end
+  end
 end
 

@@ -13,12 +13,17 @@ require 'ruboty/extension/rss'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-# module Ruboty
-#   module Extension
-#     module Rss
-#       class Sample < Base
-#       end
-#     end
-#   end
-# end
+RSS_SAMPLE_URL = 'https://github.com/zeero/ruboty-extension-rss/commits/master.atom'.freeze
+
+module Ruboty
+  module Rsses
+    class Sample < Base
+      rss(RSS_SAMPLE_URL, name: 'github', description: 'commit feed from github', interval: 5)
+
+      def github(entry)
+        entry
+      end
+    end
+  end
+end
 

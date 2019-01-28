@@ -6,7 +6,7 @@ module Ruboty
           @rss = rss
           @checker = Checker.new(url)
           @name = name
-          @interval = self.class.parent.to_positive_i(options[:interval]) || INTERVAL
+          @interval = self.class.parent.to_positive_i(options[:interval]) || self.class.parent::INTERVAL
           @options = options
         end
 
@@ -29,7 +29,7 @@ module Ruboty
 
         def check
           @checker.new_entries.each do |entry|
-            @rss.send(@name, entry)
+            @rss.send(@name, entry) if @rss.respond_to? @name
           end
         end
       end

@@ -10,7 +10,7 @@ module Ruboty
     end
 
     def extension_rss
-      rsses.each(&:run)
+      rsses.each(&:call)
     end
 
     def rsses

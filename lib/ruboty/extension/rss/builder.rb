@@ -9,11 +9,7 @@ module Ruboty
         end
 
         def build
-          puts 'Rss::Builder#build'
-          Ruboty::Extenision::Rss.rsses.map { |rss| rss.new(robot) }
-
-          # TODO
-          []
+          self.class.parent.rsses.map { |rss| rss.new(robot) }
         end
       end
     end
