@@ -10,7 +10,7 @@ module Ruboty
 
         def rss(url, options = {})
           name = options[:name]
-          jobs << Ruboty::Extension::Rss::Job.new(self, url, name, options)
+          jobs << Ruboty::Extension::Rss::Job.new(url, name, options)
         end
 
         def jobs
@@ -29,7 +29,7 @@ module Ruboty
       end
 
       def call(_options = {})
-        self.class.jobs.each(&:start)
+        self.class.jobs.map { |job| job.start(self) }
       end
     end
   end

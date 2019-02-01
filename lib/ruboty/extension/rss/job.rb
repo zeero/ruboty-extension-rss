@@ -2,16 +2,15 @@ module Ruboty
   module Extension
     module Rss
       class Job
-        def initialize(rss, url, name, options = {})
-          @rss = rss
+        def initialize(url, name, options = {})
           @checker = Checker.new(url)
           @name = name
           @interval = self.class.parent.to_positive_i(options[:interval]) || self.class.parent::INTERVAL
           @options = options
         end
 
-        def start
-          @thread = Thread.new { run }
+        def start(rss)
+          @thread = Thread.new { run(rss) }
         end
 
         def stop
@@ -20,16 +19,16 @@ module Ruboty
 
         private
 
-        def run
+        def run(rss)
           loop do
             sleep @interval
-            check
+            check(rss)
           end
         end
 
-        def check
+        def check(rss)
           @checker.new_entries.each do |entry|
-            @rss.send(@name, entry) if @rss.respond_to? @name
+            rss.send(@name, entry) if rss.respond_to? @name
           end
         end
       end

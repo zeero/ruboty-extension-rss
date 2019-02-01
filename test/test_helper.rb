@@ -18,7 +18,7 @@ RSS_SAMPLE_URL = 'https://github.com/zeero/ruboty-extension-rss/commits/master.a
 module Ruboty
   module Rsses
     class Sample < Base
-      rss(RSS_SAMPLE_URL, name: 'github', description: 'commit feed from github', interval: 5)
+      rss(RSS_SAMPLE_URL, name: 'github', description: 'commit feed from github', interval: 1)
 
       def github(entry)
         entry
