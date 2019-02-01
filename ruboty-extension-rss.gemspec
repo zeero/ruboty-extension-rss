@@ -4,7 +4,7 @@ require 'ruboty/extension/rss/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'ruboty-extension-rss'
-  spec.version       = Ruboty::Extension::Rss::VERSION
+  spec.version       = Ruboty::Extension::RSS::VERSION
   spec.authors       = ['zeero']
   spec.email         = ['zeero26@gmail.com']
   spec.summary       = 'Ruboty Extension - Action trigger with RSS'

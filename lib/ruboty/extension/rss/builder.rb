@@ -1,6 +1,6 @@
 module Ruboty
   module Extension
-    module Rss
+    module RSS
       class Builder
         attr_reader :robot
 

@@ -1,11 +1,11 @@
 require 'test_helper'
 
-describe Ruboty::Extension::Rss do
-  subject { Ruboty::Extension::Rss }
+describe Ruboty::Extension::RSS do
+  subject { Ruboty::Extension::RSS }
 
   describe 'VERSION' do
     it 'has a version number' do
-      ::Ruboty::Extension::Rss::VERSION.wont_be_nil
+      ::Ruboty::Extension::RSS::VERSION.wont_be_nil
     end
   end
 

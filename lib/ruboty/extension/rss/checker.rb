@@ -3,7 +3,7 @@ require 'feed-normalizer'
 
 module Ruboty
   module Extension
-    module Rss
+    module RSS
       class Checker
         def initialize(url)
           @url = url

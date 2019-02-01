@@ -5,7 +5,7 @@ require 'mem'
 
 module Ruboty
   module Extension
-    module Rss
+    module RSS
       class << self
         include Mem
 

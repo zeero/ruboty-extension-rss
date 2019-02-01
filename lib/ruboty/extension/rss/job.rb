@@ -1,6 +1,6 @@
 module Ruboty
   module Extension
-    module Rss
+    module RSS
       class Job
         def initialize(url, name, options = {})
           @checker = Checker.new(url)

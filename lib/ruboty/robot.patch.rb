@@ -14,7 +14,7 @@ module Ruboty
     end
 
     def rsses
-      Ruboty::Extension::Rss::Builder.new(self).build
+      Ruboty::Extension::RSS::Builder.new(self).build
     end
   end
 end

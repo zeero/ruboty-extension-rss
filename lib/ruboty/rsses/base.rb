@@ -1,16 +1,16 @@
 module Ruboty
-  module Rsses
+  module RSSes
     class Base
       class << self
         include Mem
 
         def inherited(child)
-          Ruboty::Extension::Rss.rsses << child
+          Ruboty::Extension::RSS.rsses << child
         end
 
         def rss(url, options = {})
           name = options[:name]
-          jobs << Ruboty::Extension::Rss::Job.new(url, name, options)
+          jobs << Ruboty::Extension::RSS::Job.new(url, name, options)
         end
 
         def jobs

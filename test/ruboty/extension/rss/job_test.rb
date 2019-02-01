@@ -1,14 +1,14 @@
 require 'test_helper'
 
-describe Ruboty::Extension::Rss::Job do
-  subject { Ruboty::Extension::Rss::Job.new('url', rss_method, interval: 1) }
+describe Ruboty::Extension::RSS::Job do
+  subject { Ruboty::Extension::RSS::Job.new('url', rss_method, interval: 1) }
 
   let(:mock_rss) { mock }
   let(:rss_method) { 'name' }
   let(:mock_checker) { mock }
 
   before do
-    Ruboty::Extension::Rss::Checker.stubs(:new).returns mock_checker
+    Ruboty::Extension::RSS::Checker.stubs(:new).returns mock_checker
   end
 
   describe '#check' do
@@ -54,7 +54,7 @@ describe Ruboty::Extension::Rss::Job do
     end
 
     it 'has default interval with option not set' do
-      job = Ruboty::Extension::Rss::Job.new('url', rss_method)
+      job = Ruboty::Extension::RSS::Job.new('url', rss_method)
       job.instance_variable_get('@interval').must_equal 3600
     end
   end
